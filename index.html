@@ -2,9 +2,21 @@
 <html>
 	<head>
 		<title>Sample Page</title>
+		<script>
+			var url = 'http://randommessagegenerator.appspot.com';
+			//var url = 'http://localhost:8080';
+			fetch(url)
+				.then(function(response) {
+						return response.text();
+				}).then(function(text){
+					document.getElementById('content').innerHTML = text;
+				});
+		
+		</script>
 	</head>
 	<body>
 		<h1>Sample Page</h1>
 		<p>Hello world!</p>
+		<p id="content">Loading...</p>
 	</body>
 </html>
