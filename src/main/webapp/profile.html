@@ -58,9 +58,13 @@
   if(!parameterUsername){
   	window.location.replace('/index.html');
   }
+
+  function setProfileHeading(){
+    document.getElementById('profile-heading').innerHTML = parameterUsername;
+  }
   
   // Show the form if the user is logged in and viewing their own profile.
-  function maybeShowForm(){
+  function showFormIfViewingSelf(){
     // Get login data
     fetch('/login-status').then(function(response) {
       return response.json();
@@ -126,17 +130,18 @@
   
   // Fetch data and populate the UI of the page.
   function buildUI(){
-	  maybeShowForm();
+    setProfileHeading();
+	  showFormIfViewingSelf();
 	  fetchMessages();
   }
 </script>
 </head>
 <body onload="buildUI()">
 	<div id="content">
-		<h1>Profile</h1>
+		<h1 id="profile-heading">Profile</h1>
 		<div id="message-form" class="hidden">
 			<form action="/messages" method="POST">
-				<textarea name="text" placeholder="placeholder" rows=4 required></textarea>
+				<textarea name="text" rows=4 required></textarea>
 				<input type="submit" value="Submit">
 			</form>
 		</div>
