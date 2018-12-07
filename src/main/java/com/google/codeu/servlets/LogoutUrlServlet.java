@@ -10,12 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /** Provides access to a URL that allows a user to logout of their Google account. */
-@WebServlet(name = "LogoutUrlServlet", value = "/logout-url")
+@WebServlet("/logout-url")
 public class LogoutUrlServlet extends HttpServlet {
 
   @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response)
-      throws IOException, ServletException {
+  public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
     UserService userService = UserServiceFactory.getUserService();
     String logoutUrl = userService.createLogoutURL("/index.html");

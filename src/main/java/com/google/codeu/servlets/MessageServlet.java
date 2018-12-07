@@ -21,7 +21,7 @@ import org.jsoup.safety.Whitelist;
 /**
  * Handles fetching and saving Messages.
  */
-@WebServlet(name = "MessageServlet", value = "/messages")
+@WebServlet("/messages")
 public class MessageServlet extends HttpServlet {
 
 	private Datastore datastore;
@@ -35,8 +35,7 @@ public class MessageServlet extends HttpServlet {
 	 * Responds with a JSON representation of Message data for a specific user.
 	 */
 	@Override
-	public void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws IOException, ServletException {
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
 		response.setContentType("text/html");
 		

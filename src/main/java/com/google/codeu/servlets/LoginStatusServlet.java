@@ -15,12 +15,11 @@ import javax.servlet.http.HttpServletResponse;
  * Returns login data as JSON, e.g.
  * {"isLoggedIn": true, "username": "Ada"}
  */
-@WebServlet(name = "LoginStatusServlet", value = "/login-status")
+@WebServlet("/login-status")
 public class LoginStatusServlet extends HttpServlet {
 
   @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response)
-      throws IOException, ServletException {
+  public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
     JsonObject jsonObject = new JsonObject();
   

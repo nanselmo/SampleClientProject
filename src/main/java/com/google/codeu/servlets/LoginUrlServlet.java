@@ -10,12 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /** Provides access to a URL that allows a user to login to Google. */
-@WebServlet(name = "LoginUrlServlet", value = "/login-url")
+@WebServlet("/login-url")
 public class LoginUrlServlet extends HttpServlet {
 
   @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response)
-      throws IOException, ServletException {
+  public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
     UserService userService = UserServiceFactory.getUserService();
     String loginUrl = userService.createLoginURL("/profile.html?user=me");

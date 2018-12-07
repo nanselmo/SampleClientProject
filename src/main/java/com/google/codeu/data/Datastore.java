@@ -38,12 +38,12 @@ public class Datastore {
 
 		Query query = new Query("Message")
 				.setFilter(new Query.FilterPredicate("user", FilterOperator.EQUAL, user))
-				.addSort("timestamp", SortDirection.DESCENDING);;
+				.addSort("timestamp", SortDirection.DESCENDING);
 				PreparedQuery results = datastore.prepare(query);
 
 				for (Entity entity : results.asIterable()) {
 					try {
-						String idString = (String) entity.getKey().getName();
+						String idString = entity.getKey().getName();
 						UUID id = UUID.fromString(idString);
 						String text = (String) entity.getProperty("text");
 						long timestamp = (long) entity.getProperty("timestamp");
