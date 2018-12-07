@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/** Provides access to a URL that allows a user to login to Google. */
+/**
+ * Provides access to a URL that allows a user to login to Google.
+ */
 @WebServlet("/login-url")
 public class LoginUrlServlet extends HttpServlet {
 
@@ -18,7 +20,7 @@ public class LoginUrlServlet extends HttpServlet {
 
     UserService userService = UserServiceFactory.getUserService();
     String loginUrl = userService.createLoginURL("/profile.html?user=me");
-    
+
     response.setContentType("text/html");
     response.getOutputStream().println(loginUrl);
   }

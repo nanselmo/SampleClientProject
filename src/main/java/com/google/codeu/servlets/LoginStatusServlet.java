@@ -12,8 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Returns login data as JSON, e.g.
- * {"isLoggedIn": true, "username": "Ada"}
+ * Returns login data as JSON, e.g. {"isLoggedIn": true, "username": "Ada"}
  */
 @WebServlet("/login-status")
 public class LoginStatusServlet extends HttpServlet {
@@ -22,16 +21,16 @@ public class LoginStatusServlet extends HttpServlet {
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
     JsonObject jsonObject = new JsonObject();
-  
+
     UserService userService = UserServiceFactory.getUserService();
     if (userService.isUserLoggedIn()) {
       jsonObject.addProperty("isLoggedIn", true);
-      jsonObject.addProperty("username", userService.getCurrentUser().getEmail());	
+      jsonObject.addProperty("username", userService.getCurrentUser().getEmail());
     } else {
       jsonObject.addProperty("isLoggedIn", false);
     }
-    
+
     response.setContentType("application/json");
     response.getOutputStream().println(jsonObject.toString());
-  } 
+  }
 }

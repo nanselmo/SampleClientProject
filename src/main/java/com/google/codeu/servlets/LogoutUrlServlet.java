@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/** Provides access to a URL that allows a user to logout of their Google account. */
+/**
+ * Provides access to a URL that allows a user to logout of their Google account.
+ */
 @WebServlet("/logout-url")
 public class LogoutUrlServlet extends HttpServlet {
 
